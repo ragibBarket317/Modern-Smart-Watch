@@ -6,7 +6,7 @@
     <title>Modren Smart Watch</title>
     <!-- Font Awesome Script -->
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       rel="stylesheet"
     />
   </head>
@@ -14,8 +14,179 @@
     <div
       class="container w-full p-5 md:w-[800px] xl:w-[1180px] 2xl:w-[1320px] mx-auto md:p-10"
     >
-      <i class="fas fa-clock"></i>
-      <i class="far fa-clock" style="font-size: 120px; color: #2196f3"></i>
+      <div class="bg-white p-5">
+        <div class="flex flex-col md:flex-row gap-[4%]">
+          <!-- Product Image  -->
+          <div class="md:w-[48%]">
+            <img
+              id="mainThumbnail"
+              src="/images/purple.png"
+              alt="smart watch"
+              class="w-full h-auto rounded-[4px]"
+            />
+          </div>
+          <!-- Product Details  -->
+          <div class="md:w-[48%] flex flex-col justify-center md:pl-5">
+            <div>
+              <h1 class="text-[40px] font-bold mb-2">
+                Classy Modern Smart Watch
+              </h1>
+              <div class="flex items-center text-yellow-500 mb-4">
+                <span>&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+                <span class="text-[#8091A7] text-[14px] ml-2">(2 Reviews)</span>
+              </div>
+              <div class="mb-4">
+                <span class="text-[#8091A7] text-[20px] line-through"
+                  >$99.00</span
+                >
+                <span class="text-2xl font-bold text-blue-500 mb-4"
+                  >$79.00</span
+                >
+              </div>
+              <p class="mb-4 text-[#8091A7] text-[18px]">
+                I must explain to you how all this mistaken idea of denouncing
+                pleasure and praising pain was born and I will give you a
+                complete account of the system, and expound the actual
+                teachings.
+              </p>
+              <div class="grid grid-cols-4 gap-4">
+                <p class="text-[#8091A7] text-[14px]">Type</p>
+                <p class="text-[#8091A7] text-[14px]">Model Number</p>
+              </div>
+              <div class="grid grid-cols-4 gap-4">
+                <p class="text-sm font-medium">Watch</p>
+                <p class="text-sm font-medium">Forerunner 290XT</p>
+              </div>
+
+              <div class="mt-4">
+                <h2 class="text-[18px] font-bold">Band Color</h2>
+                <div class="flex space-x-2 mt-2">
+                  <fieldset class="flex flex-wrap gap-3">
+                    <legend class="sr-only">Color</legend>
+
+                    <label
+                      for="ColorBlack"
+                      class="block size-4 cursor-pointer rounded-full bg-[#816BFF] shadow-sm has-[:checked]:ring-2 has-[:checked]:ring-[#816BFF] has-[:checked]:ring-offset-2"
+                    >
+                      <input
+                        type="radio"
+                        name="ColorOption"
+                        value="ColorBlack"
+                        id="ColorBlack"
+                        class="sr-only"
+                        checked
+                        onclick="selectColor('img-2')"
+                      />
+
+                      <span class="sr-only"> Texas Tea </span>
+                    </label>
+
+                    <label
+                      for="ColorRed"
+                      class="block size-4 cursor-pointer rounded-full bg-[#1FCEC9] shadow-sm has-[:checked]:ring-2 has-[:checked]:ring-[#1FCEC9] has-[:checked]:ring-offset-2"
+                    >
+                      <input
+                        type="radio"
+                        name="ColorOption"
+                        value="ColorRed"
+                        id="ColorRed"
+                        class="sr-only"
+                        onclick="selectColor('img-1')"
+                      />
+
+                      <span class="sr-only">Fiesta Red</span>
+                    </label>
+
+                    <label
+                      for="ColorBlue"
+                      class="block size-4 cursor-pointer rounded-full bg-[#4B97D3] shadow-sm has-[:checked]:ring-2 has-[:checked]:ring-[#4B97D3] has-[:checked]:ring-offset-2"
+                    >
+                      <input
+                        type="radio"
+                        name="ColorOption"
+                        value="ColorBlue"
+                        id="ColorBlue"
+                        class="sr-only"
+                        onclick="selectColor('blue')"
+                      />
+
+                      <span class="sr-only">Cobalt Blue</span>
+                    </label>
+
+                    <label
+                      for="ColorGold"
+                      class="block size-4 cursor-pointer rounded-full bg-[#3B4747] shadow-sm has-[:checked]:ring-2 has-[:checked]:ring-[#3B4747] has-[:checked]:ring-offset-2"
+                    >
+                      <input
+                        type="radio"
+                        name="ColorOption"
+                        value="ColorGold"
+                        id="ColorGold"
+                        class="sr-only"
+                        onclick="selectColor('black')"
+                      />
+
+                      <span class="sr-only">Goldtop</span>
+                    </label>
+                  </fieldset>
+                </div>
+              </div>
+
+              <div class="mt-4">
+                <h2 class="text-[18px] font-bold">Wrist Size</h2>
+                <div class="flex space-x-2 mt-2">
+                  <button class="px-4 py-2 text-[13px] border rounded-[3px]">
+                    <span class="font-bold">S</span> $69
+                  </button>
+                  <button class="px-4 py-2 text-[13px] border rounded-[3px]">
+                    <span class="font-bold">M</span> $79
+                  </button>
+                  <button class="px-4 py-2 text-[13px] border rounded-[3px]">
+                    <span class="font-bold">L</span> $89
+                  </button>
+                  <button class="px-4 py-2 text-[13px] border rounded-[3px]">
+                    <span class="font-bold">XL</span> $99
+                  </button>
+                </div>
+              </div>
+
+              <!-- Quantity Selector -->
+              <div class="flex gap-3 mt-4">
+                <div class="w-[20%] flex">
+                  <button
+                    class="px-3 py-2 text-gray-500 border hover:text-gray-700 focus:outline-none"
+                  >
+                    &minus;
+                  </button>
+                  <div
+                    class="px-4 py-2 text-gray-700 border-t border-b border-gray-300"
+                  >
+                    0
+                  </div>
+                  <button
+                    class="px-3 py-2 text-gray-500 border hover:text-gray-700 focus:outline-none w-8"
+                  >
+                    +
+                  </button>
+                </div>
+                <!-- Add to Cart Button -->
+                <button
+                  class="px-6 py-2 text-white bg-indigo-500 rounded-[3px] text-[13px] font-bold hover:bg-indigo-600 focus:outline-none"
+                >
+                  Add to Cart
+                </button>
+
+                <!-- Heart Icon -->
+                <button
+                  class="text-indigo-500 hover:text-indigo-600 focus:outline-none"
+                >
+                  <i class="fa-regular fa-heart text-[18.6px]"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- JS -->
     <script src="/js/script.js"></script>
