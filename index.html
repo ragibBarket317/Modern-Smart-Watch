@@ -9,32 +9,59 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       rel="stylesheet"
     />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom CSS -->
+    <style>
+      * {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+      .selected-size {
+        border-color: #6576ff;
+      }
+    </style>
   </head>
   <body class="font-roboto">
-    <div
-      class="container w-full p-5 md:w-[800px] xl:w-[1180px] 2xl:w-[1320px] mx-auto md:p-10"
-    >
+    <div class="container w-full px-2 md:px-8 xl:px-16 mx-auto py-5 md:py-10">
       <div class="bg-white p-5">
-        <div class="flex flex-col md:flex-row gap-[4%]">
-          <!-- Product Image  -->
-          <div class="md:w-[48%]">
+        <div class="flex flex-col md:flex-row gap-[2%]">
+          <div class="relative w-full md:w-[49%]">
+            <!-- Placeholder div with yellow background -->
+            <div
+              id="image-placeholder"
+              class="absolute inset-0 bg-yellow-400 animate-pulse"
+            ></div>
+            <!-- Main Product Image -->
             <img
-              id="mainThumbnail"
+              id="product-image"
               src="/images/purple.png"
-              alt="smart watch"
-              class="w-full h-auto rounded-[4px]"
+              alt="Product Image"
+              class="w-full h-auto lg:w-[630px] lg:h-[720px] transition-opacity duration-8000 opacity-0"
+              onload="handleImageLoad()"
             />
           </div>
-          <!-- Product Details  -->
-          <div class="md:w-[48%] flex flex-col justify-center md:pl-5">
+          <!-- Product Details -->
+          <div
+            class="w-full md:w-[49%] flex flex-col justify-center md:pl-5 mt-4"
+          >
             <div>
-              <h1 class="text-[40px] font-bold mb-2">
+              <h1
+                class="text-[28px] md:text-[36px] lg:text-[40px] font-bold mb-2"
+              >
                 Classy Modern Smart Watch
               </h1>
-              <div class="flex items-center text-yellow-500 mb-4">
-                <span>&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+              <div
+                class="flex items-center text-yellow-500 text-[14px] space-x-1 mb-4"
+              >
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+                <i class="fa-regular fa-star"></i>
                 <span class="text-[#8091A7] text-[14px] ml-2">(2 Reviews)</span>
               </div>
+
               <div class="mb-4">
                 <span class="text-[#8091A7] text-[20px] line-through"
                   >$99.00</span
@@ -49,24 +76,24 @@
                 complete account of the system, and expound the actual
                 teachings.
               </p>
-              <div class="grid grid-cols-4 gap-4">
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <p class="text-[#8091A7] text-[14px]">Type</p>
                 <p class="text-[#8091A7] text-[14px]">Model Number</p>
               </div>
-              <div class="grid grid-cols-4 gap-4">
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <p class="text-sm font-medium">Watch</p>
                 <p class="text-sm font-medium">Forerunner 290XT</p>
               </div>
 
               <div class="mt-4">
-                <h2 class="text-[18px] font-bold">Band Color</h2>
+                <h2 class="text-[18px] text-[#364A63] font-bold">Band Color</h2>
                 <div class="flex space-x-2 mt-2">
-                  <fieldset class="flex flex-wrap gap-3">
+                  <fieldset class="flex flex-wrap gap-4">
                     <legend class="sr-only">Color</legend>
 
                     <label
                       for="ColorBlack"
-                      class="block size-4 cursor-pointer rounded-full bg-[#816BFF] shadow-sm has-[:checked]:ring-2 has-[:checked]:ring-[#816BFF] has-[:checked]:ring-offset-2"
+                      class="block size-[16px] cursor-pointer rounded-full bg-[#816BFF] shadow-sm has-[:checked]:ring-2 has-[:checked]:ring-[#816BFF] has-[:checked]:ring-offset-2"
                     >
                       <input
                         type="radio"
@@ -75,15 +102,15 @@
                         id="ColorBlack"
                         class="sr-only"
                         checked
-                        onclick="selectColor('img-2')"
+                        onclick="selectColor('purple')"
                       />
 
-                      <span class="sr-only"> Texas Tea </span>
+                      <span class="sr-only">purple</span>
                     </label>
 
                     <label
                       for="ColorRed"
-                      class="block size-4 cursor-pointer rounded-full bg-[#1FCEC9] shadow-sm has-[:checked]:ring-2 has-[:checked]:ring-[#1FCEC9] has-[:checked]:ring-offset-2"
+                      class="block size-[16px] cursor-pointer rounded-full bg-[#1FCEC9] shadow-sm has-[:checked]:ring-2 has-[:checked]:ring-[#1FCEC9] has-[:checked]:ring-offset-2"
                     >
                       <input
                         type="radio"
@@ -91,15 +118,15 @@
                         value="ColorRed"
                         id="ColorRed"
                         class="sr-only"
-                        onclick="selectColor('img-1')"
+                        onclick="selectColor('cyan')"
                       />
 
-                      <span class="sr-only">Fiesta Red</span>
+                      <span class="sr-only">cyan</span>
                     </label>
 
                     <label
                       for="ColorBlue"
-                      class="block size-4 cursor-pointer rounded-full bg-[#4B97D3] shadow-sm has-[:checked]:ring-2 has-[:checked]:ring-[#4B97D3] has-[:checked]:ring-offset-2"
+                      class="block size-[16px] cursor-pointer rounded-full bg-[#4B97D3] shadow-sm has-[:checked]:ring-2 has-[:checked]:ring-[#4B97D3] has-[:checked]:ring-offset-2"
                     >
                       <input
                         type="radio"
@@ -110,12 +137,12 @@
                         onclick="selectColor('blue')"
                       />
 
-                      <span class="sr-only">Cobalt Blue</span>
+                      <span class="sr-only">Blue</span>
                     </label>
 
                     <label
                       for="ColorGold"
-                      class="block size-4 cursor-pointer rounded-full bg-[#3B4747] shadow-sm has-[:checked]:ring-2 has-[:checked]:ring-[#3B4747] has-[:checked]:ring-offset-2"
+                      class="block size-[16px] cursor-pointer rounded-full bg-[#3B4747] shadow-sm has-[:checked]:ring-2 has-[:checked]:ring-[#3B4747] has-[:checked]:ring-offset-2"
                     >
                       <input
                         type="radio"
@@ -126,52 +153,68 @@
                         onclick="selectColor('black')"
                       />
 
-                      <span class="sr-only">Goldtop</span>
+                      <span class="sr-only">black</span>
                     </label>
                   </fieldset>
                 </div>
               </div>
 
               <div class="mt-4">
-                <h2 class="text-[18px] font-bold">Wrist Size</h2>
+                <h2 class="text-[18px] text-[#364A63] font-bold">Wrist Size</h2>
                 <div class="flex space-x-2 mt-2">
-                  <button class="px-4 py-2 text-[13px] border rounded-[3px]">
+                  <button
+                    onclick="selectSize('S', 69)"
+                    class="wrist-size-button px-4 py-2 text-[13px] border rounded-[3px]"
+                  >
                     <span class="font-bold">S</span> $69
                   </button>
-                  <button class="px-4 py-2 text-[13px] border rounded-[3px]">
+                  <button
+                    onclick="selectSize('M', 79)"
+                    class="wrist-size-button px-4 py-2 text-[13px] border rounded-[3px]"
+                  >
                     <span class="font-bold">M</span> $79
                   </button>
-                  <button class="px-4 py-2 text-[13px] border rounded-[3px]">
+                  <button
+                    onclick="selectSize('L', 89)"
+                    class="wrist-size-button px-4 py-2 text-[13px] border rounded-[3px]"
+                  >
                     <span class="font-bold">L</span> $89
                   </button>
-                  <button class="px-4 py-2 text-[13px] border rounded-[3px]">
+                  <button
+                    onclick="selectSize('XL', 99)"
+                    class="wrist-size-button px-4 py-2 text-[13px] border rounded-[3px]"
+                  >
                     <span class="font-bold">XL</span> $99
                   </button>
                 </div>
               </div>
 
               <!-- Quantity Selector -->
-              <div class="flex gap-3 mt-4">
-                <div class="w-[20%] flex">
+              <div class="flex gap-3 mt-4 mb-8 md:mb-0">
+                <div class="w-[34%] lg:w-[24%] xl:w-[16%] flex">
                   <button
-                    class="px-3 py-2 text-gray-500 border hover:text-gray-700 focus:outline-none"
+                    class="px-3 py-2 text-gray-500 border hover:text-gray-700 focus:outline-none rounded-s-[4px]"
+                    id="decreaseButton"
                   >
-                    &minus;
+                    -
                   </button>
                   <div
+                    id="quantityDisplay"
                     class="px-4 py-2 text-gray-700 border-t border-b border-gray-300"
                   >
-                    0
+                    1
                   </div>
                   <button
-                    class="px-3 py-2 text-gray-500 border hover:text-gray-700 focus:outline-none w-8"
+                    class="px-3 py-2 text-gray-500 border hover:text-gray-700 focus:outline-none w-8 rounded-r-[4px]"
+                    id="increaseButton"
                   >
                     +
                   </button>
                 </div>
                 <!-- Add to Cart Button -->
                 <button
-                  class="px-6 py-2 text-white bg-indigo-500 rounded-[3px] text-[13px] font-bold hover:bg-indigo-600 focus:outline-none"
+                  class="bg-[#6576FF] px-[18px] py-[8px] rounded-[3px] text-[13px] text-[#364A63] text-white font-bold active:bg-indigo-600 focus:outline-none"
+                  onclick="addToCart()"
                 >
                   Add to Cart
                 </button>
@@ -187,9 +230,95 @@
           </div>
         </div>
       </div>
+      <!-- Floating Checkout Button -->
+      <div
+        id="floatingCheckout"
+        class="hidden fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-[3px] shadow-lg flex items-center space-x-2 cursor-pointer"
+        onclick="toggleCartModal()"
+      >
+        <span>Checkout</span>
+        <span
+          id="cartItemCount"
+          class="bg-white text-blue-500 rounded-full w-6 h-6 flex items-center justify-center font-bold"
+        >
+          0
+        </span>
+      </div>
+      <!-- Cart Modal -->
+      <div
+        id="cartModal"
+        class="hidden fixed inset-0 bg-[#11121B8C] bg-opacity-50 flex justify-center items-center"
+      >
+        <div class="bg-white rounded-[20px] p-5 w-[96%] md:w-[650px]">
+          <h2 class="text-[22px] text-[#364A63] font-bold mb-4">Your Cart</h2>
+          <table class="w-full table-auto border-collapse overflow-x-auto">
+            <thead>
+              <tr>
+                <th class="border-b pb-2 text-left text-[14px] text-[#8091A7]">
+                  Item
+                </th>
+                <th
+                  class="border-b pb-2 text-center text-[14px] text-[#8091A7]"
+                >
+                  Color
+                </th>
+                <th
+                  class="border-b pb-2 text-center text-[14px] text-[#8091A7]"
+                >
+                  Size
+                </th>
+                <th
+                  class="border-b pb-2 text-center text-[14px] text-[#8091A7]"
+                >
+                  Qnt
+                </th>
+                <th class="border-b pb-2 text-end text-[14px] text-[#8091A7]">
+                  Price
+                </th>
+              </tr>
+            </thead>
+            <tbody id="cartItems">
+              <!-- Items will be dynamically added here -->
+            </tbody>
+          </table>
+          <div class="mt-4 flex">
+            <p class="w-[78%] md:w-[83%] text-[16px] text-[#373737] font-bold">
+              Total
+            </p>
+            <div class="w-[22%] md:w-[17%] flex justify-between">
+              <p
+                id="totalQuantity"
+                class="text-[14px] text-[#364A63] text-center font-bold"
+              >
+                4
+              </p>
+              <p
+                id="totalPrice"
+                class="text-[15px] md:text-[18px] text-[#364A63] font-bold"
+              >
+                $00.00
+              </p>
+            </div>
+          </div>
+          <div class="mt-4 flex justify-end">
+            <div>
+              <button
+                onclick="toggleCartModal()"
+                class="px-[18px] py-[8px] rounded-[3px] border-[1px] text-[13px] text-[#364A63] font-bold mr-[10px]"
+              >
+                Continue Shopping
+              </button>
+              <button
+                class="bg-[#6576FF] px-[18px] py-[8px] rounded-[3px] text-[13px] text-[#364A63] text-white font-bold"
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- JS -->
     <script src="/js/script.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
   </body>
 </html>
