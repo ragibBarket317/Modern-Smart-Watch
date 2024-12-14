@@ -9,8 +9,10 @@ function handleImageLoad() {
 }
 
 function changeThumbnail(color) {
-  const thumbnail = document.getElementById('mainThumbnail')
-  thumbnail.src = `/images/${color.toLowerCase()}.png`
+  selectedColor = color
+  document.getElementById(
+    'product-image'
+  ).src = `/images/${color.toLowerCase()}.png`
 }
 
 function selectColor(color) {
@@ -79,7 +81,6 @@ function addToCart() {
     title.className = 'text-[14px] text-[#364A63]'
     imgContainer.appendChild(title)
 
-    console.log('imgContainer', imgContainer.outerHTML)
     // Add a new row for the item
     const totalItems = document.createElement('tr')
     totalItems.innerHTML = `
