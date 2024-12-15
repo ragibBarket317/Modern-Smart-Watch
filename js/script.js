@@ -84,7 +84,7 @@ function addToCart() {
     // Add a new row for the item
     const totalItems = document.createElement('tr')
     totalItems.innerHTML = `
-      <td class="border-b py-2">
+      <td class="border-b py-2 w-[50%]">
         ${imgContainer.outerHTML}
       </td>
       <td class="border-b py-2 text-center text-[14px] text-[#364A63] capitalize">${selectedColor}</td>
